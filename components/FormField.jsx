@@ -26,11 +26,13 @@ const FormField = ({
           placeholder={placeholder}
           placeholderTextColor="#7B7B8B"
           onChangeText={handleChangeText}
-          secureTextEntry={title === "密碼" && !showPassword}
+          secureTextEntry={
+            (title === "密碼" || title === "確認密碼") && !showPassword
+          }
           {...props}
         />
 
-        {title === "密碼" && (
+        {(title === "密碼" || title === "確認密碼") && (
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Image
               source={!showPassword ? icons.eye : icons.eyeHide}
