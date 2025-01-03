@@ -3,15 +3,21 @@ import { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import axiosInstance from "../../global/axios";
 import { ProviderCard, SearchInput } from "../../components";
+import { useLocalSearchParams } from "expo-router";
+import { MaterialIcons } from '@expo/vector-icons';
 
-const Home = () => {
+
+const Search = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [providers, setProviders] = useState([]);
+  const { query } = useLocalSearchParams();
+
+  
 
   useEffect(() => {
     const fetchProviders = async () => {
       try {
-        const response = await axiosInstance.get("customer/providers/");
+        const response = await axiosInstance.get("customer/providers?search="+query);
         setProviders(response.data);
       } catch (error) {
         console.error("Error fetching providers data:", error);
@@ -20,9 +26,8 @@ const Home = () => {
         setIsLoading(false);
       }
     };
-
     fetchProviders();
-  }, []);
+  }, [query]);
 
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -35,10 +40,18 @@ const Home = () => {
 
           {/* Search Input */}
           <View className="w-full px-4 mt-6">
-            <SearchInput />
+            <SearchInput initialQuery={query} />
           </View>
 
-          {/* Restaurant List */}
+          {/* Search Result */}
+          {query && (
+            <View className="w-full px-6 mt-4">
+            <Text className="text-black font-pregular">
+              搜尋結果: {query}
+            </Text>
+          </View>
+          )}
+
           {!isLoading && (
             <View className="w-full items-center justify-center mt-6">
               {providers.map((provider) => (
@@ -53,6 +66,17 @@ const Home = () => {
             </View>
           )}
 
+          {/* No Result */}
+          {!isLoading && providers.length === 0 && (
+            <View className="w-full items-center justify-center mt-6">
+              <MaterialIcons name="error-outline" size={50} color="black" />
+              <Text className="text-black font-pregular">
+                找不到符合條件的餐廳
+              </Text>
+            </View>
+          )}
+
+
           {/* Loader */}
           {isLoading && (
             <View className="container flex justify-center items-center mt-20 pt-20">
@@ -65,4 +89,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Search;

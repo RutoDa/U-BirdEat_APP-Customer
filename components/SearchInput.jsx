@@ -11,7 +11,7 @@ const SearchInput = ({ initialQuery }) => {
   return (
     <View className="flex flex-row items-center space-x-4 w-full h-16 px-4 bg-primary rounded-2xl border-2 border-black-200 focus:border-secondary">
       <TextInput
-        className="text-base text-black mt-0.5 flex-1 font-pregular"
+        className="text-base text-black mt-2 flex-1 font-pregular"
         value={query}
         placeholder="搜尋餐廳"
         placeholderTextColor="#555555"
@@ -22,8 +22,8 @@ const SearchInput = ({ initialQuery }) => {
         onPress={() => {
           if (query === "")
             return Alert.alert(
-              "Missing Query",
-              "Please input something to search results across database"
+              "請輸入搜尋條件",
+              "請輸入餐廳名稱或類別進行搜尋"
             );
 
           if (pathname.startsWith("/search")) router.setParams({ query });
