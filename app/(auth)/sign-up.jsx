@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { Link, router } from "expo-router";
+import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
-import { images } from "../../constants";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { View, Text, ScrollView, Dimensions, Alert } from "react-native";
 import { CustomButton, FormField } from "../../components";
 import axiosInstance from "../../global/axios";
-import { useAuth } from "../../context/AuthProvider";
+
 
 const CustomerSignUp = () => {
   const [isSubmitting, setSubmitting] = useState(false);

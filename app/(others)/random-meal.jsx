@@ -11,6 +11,7 @@ import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import axiosInstance from "../../global/axios";
 
+
 const RandomMeal = () => {
   const [submitting, setSubmitting] = useState(false);
   const [budget, setBudget] = useState("");

@@ -3,16 +3,15 @@ import {
   Text,
   ScrollView,
   Image,
-  TouchableOpacity,
   Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { icons } from "../../constants";
-import { EmptyState, InfoBox, VideoCard } from "../../components";
 import { useAuth } from "../../context/AuthProvider";
 import { CustomButton } from "../../components";
 import { Ionicons } from "@expo/vector-icons";
+
 
 const Profile = () => {
   const { user, logout } = useAuth();

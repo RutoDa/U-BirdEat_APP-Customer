@@ -1,6 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 
+
 const ProviderCard = ({ id, shop_name, category, image_url }) => {
   const router = useRouter();
 

@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import axiosInstance from "../../global/axios";
 import { ProviderCard, SearchInput } from "../../components";
 
+
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [providers, setProviders] = useState([]);

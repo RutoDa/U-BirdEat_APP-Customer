@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 import axiosInstance from "../../global/axios";
 import { FormField, CustomButton } from "../../components";
 
+
 const ProviderDetails = () => {
   const { id } = useLocalSearchParams();
   const [provider, setProvider] = useState(null);

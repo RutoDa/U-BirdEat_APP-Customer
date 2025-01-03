@@ -1,12 +1,11 @@
-import { View, Text, Image, Dimensions, Alert } from "react-native";
+import { View, Text, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Stack, useRouter } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import { CustomButton, FormField } from "../../components";
 import { useAuth } from "../../context/AuthProvider";
 import { useState } from "react";
-import { icons } from "../../constants";
 import axiosInstance from "../../global/axios";
+
 
 const EditProfile = () => {
   const router = useRouter();

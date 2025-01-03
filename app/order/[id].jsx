@@ -1,17 +1,15 @@
 import {
   View,
   Text,
-  Image,
   ScrollView,
   ActivityIndicator,
-  Alert,
-  TouchableOpacity,
   Animated,
 } from "react-native";
-import { useLocalSearchParams, Stack, router } from "expo-router";
+import { useLocalSearchParams, Stack } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState, useEffect, useRef } from "react";
 import axiosInstance from "../../global/axios";
+
 
 const ProviderDetails = () => {
   const { id } = useLocalSearchParams();

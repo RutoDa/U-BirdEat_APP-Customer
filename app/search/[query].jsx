@@ -12,8 +12,6 @@ const Search = () => {
   const [providers, setProviders] = useState([]);
   const { query } = useLocalSearchParams();
 
-  
-
   useEffect(() => {
     const fetchProviders = async () => {
       try {

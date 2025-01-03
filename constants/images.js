@@ -1,12 +1,7 @@
-import profile from "../assets/images/profile.png";
-import thumbnail from "../assets/images/thumbnail.png";
-import cards from "../assets/images/cards.png";
-import path from "../assets/images/path.png";
-import logo from "../assets/images/logo.png";
-import logoSmall from "../assets/images/logo-small.png";
-import empty from "../assets/images/empty.png";
+import logo from "../assets/images/adaptive-icon.png";
 import icon from "../assets/icons/icon.png"
 import logoWide from "../assets/images/logo-wide.png";
 import userPhoto from "../assets/images/user.png";
 
-export default { profile, thumbnail, cards, path, logo, logoSmall, empty, icon, logoWide, userPhoto };
+
+export default { logo, icon, logoWide, userPhoto };

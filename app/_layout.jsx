@@ -4,9 +4,6 @@ import "../global.css";
 import { SplashScreen, Stack } from "expo-router";
 import { AuthProvider } from "../context/AuthProvider";
 
-// import GlobalProvider from "../context/GlobalProvider";
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
@@ -24,7 +21,6 @@ const RootLayout = () => {
 
   useEffect(() => {
     if (error) throw error;
-
     if (fontsLoaded) {
       SplashScreen.hideAsync();
     }

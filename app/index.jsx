@@ -3,8 +3,9 @@ import { Redirect, router } from "expo-router";
 import { View, Text, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
-import { CustomButton, Loader } from "../components";
+import { CustomButton } from "../components";
 import { useAuth } from "../context/AuthProvider";
+
 
 const Welcome = () => {
   const { isLoggedIn } = useAuth();
@@ -24,12 +25,6 @@ const Welcome = () => {
             className="w-[130px] h-[130px]"
             resizeMode="contain"
           />
-
-          {/* <Image
-                    source={images.cards}
-                    className="max-w-[380px] w-full h-[298px]"
-                    resizeMode="contain"
-                /> */}
 
           <View className="relative mt-5">
             <Text className="text-3xl text-black font-bold text-center">
