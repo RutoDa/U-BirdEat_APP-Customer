@@ -64,11 +64,19 @@ const ChatBot = () => {
   const [inputText, setInputText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollViewRef = useRef();
-
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  
   const loadChatHistory = async () => {
     try {
       const response = await axiosInstance.get("customer/chatbot/");
       setMessages(response.data.history);
+
+      setTimeout(() => {
+        if (scrollViewRef.current && isInitialLoad) {
+          scrollViewRef.current.scrollToEnd({ animated: false });
+          setIsInitialLoad(false);
+        }
+      }, 100);
     } catch (error) {
       console.error("Error loading chat history:", error);
       Alert.alert("錯誤", "無法載入聊天紀錄");
