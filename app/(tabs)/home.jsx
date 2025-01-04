@@ -1,5 +1,5 @@
-import { View, Text, ScrollView, ActivityIndicator } from "react-native";
-import { useState, useEffect } from "react";
+import { View, Text, ScrollView, ActivityIndicator, RefreshControl } from "react-native";
+import { useState, useEffect, useCallback } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import axiosInstance from "../../global/axios";
 import { ProviderCard, SearchInput } from "../../components";
@@ -8,26 +8,37 @@ import { ProviderCard, SearchInput } from "../../components";
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [providers, setProviders] = useState([]);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const fetchProviders = async () => {
+    try {
+      const response = await axiosInstance.get("customer/providers/");
+      setProviders(response.data);
+    } catch (error) {
+      console.error("Error fetching providers data:", error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchProviders = async () => {
-      try {
-        const response = await axiosInstance.get("customer/providers/");
-        setProviders(response.data);
-      } catch (error) {
-        console.error("Error fetching providers data:", error);
-        setError(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
     fetchProviders();
+  }, []);
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    fetchProviders();
+    setRefreshing(false);
   }, []);
 
   return (
     <SafeAreaView className="bg-primary h-full">
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
         <View className="flex items-center justify-center h-full">
           {/* LOGO */}
           <Text className="text-5xl font-semibold text-black pt-5 text-center font-psemibold">
