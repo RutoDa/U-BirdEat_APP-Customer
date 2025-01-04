@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
       setIsLoggedIn(true);
     } catch (error) {
       console.log("Error storing auth data:", error);
+      throw error;
     }
   };
 
