@@ -10,8 +10,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useState, useEffect, useRef } from "react";
 import axiosInstance from "../../global/axios";
 
-
-const ProviderDetails = () => {
+const OrderDetail = () => {
   const { id } = useLocalSearchParams();
   const [isLoading, setIsLoading] = useState(true);
   const [order, setOrder] = useState(null);
@@ -54,10 +53,10 @@ const ProviderDetails = () => {
 
   const getStatusText = (status) => {
     const statusMap = {
-      0: { text: "商家製作中", color: "bg-yellow-200 text-black" },
-      1: { text: "等待外送中", color: "bg-blue-100 text-white" },
-      2: { text: "外送中", color: "bg-purple-100 text-white" },
-      3: { text: "已送達", color: "bg-green-100 text-white" },
+      0: { text: "商家製作中", color: "bg-yellow-500 text-black" },
+      1: { text: "等待外送中", color: "bg-blue-500 text-white" },
+      2: { text: "外送中", color: "bg-purple-500 text-white" },
+      3: { text: "已送達", color: "bg-green-500 text-white" },
     };
     return (
       statusMap[status] || {
@@ -164,4 +163,4 @@ const ProviderDetails = () => {
   );
 };
 
-export default ProviderDetails;
+export default OrderDetail;
