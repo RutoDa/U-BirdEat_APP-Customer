@@ -1,14 +1,9 @@
-import {
-  ScrollView,
-  ActivityIndicator,
-  TouchableOpacity,
-} from "react-native";
+import { ScrollView, ActivityIndicator, TouchableOpacity } from "react-native";
 import { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import axiosInstance from "../../global/axios";
 import { Stack, useRouter } from "expo-router";
 import { OrderCard } from "../../components";
-
 
 const orders = () => {
   const router = useRouter();
@@ -47,6 +42,10 @@ const orders = () => {
               </TouchableOpacity>
             ))}
           </ScrollView>
+        )}
+
+        {orders.length === 0 && !isLoading && (
+          <Text className="text-center mt-5">沒有訂單紀錄</Text>
         )}
       </SafeAreaView>
     </>

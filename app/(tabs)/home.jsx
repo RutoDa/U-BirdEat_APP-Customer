@@ -1,9 +1,14 @@
-import { View, Text, ScrollView, ActivityIndicator, RefreshControl } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  ActivityIndicator,
+  RefreshControl,
+} from "react-native";
 import { useState, useEffect, useCallback } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import axiosInstance from "../../global/axios";
 import { ProviderCard, SearchInput } from "../../components";
-
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,6 +68,12 @@ const Home = () => {
                 />
               ))}
             </View>
+          )}
+
+          {providers.length === 0 && !isLoading && (
+            <Text className="text-2xl font-semibold text-black mt-10 font-psemibold">
+              沒有找到任何餐廳
+            </Text>
           )}
 
           {/* Loader */}
