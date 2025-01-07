@@ -4,7 +4,9 @@
 
 ## 平台 Demo 影片
 
-- 尚未上傳
+[![U-Bird Eats Demo 影片](https://img.youtube.com/vi/6-N3gHLu0rA/0.jpg)](https://youtu.be/6-N3gHLu0rA)
+
+點擊上方圖片即可觀看完整展示
 
 ## 專案簡介
 
